@@ -27,7 +27,7 @@ public class Receta{
 		return id; 
 	}
 	
-	public void set id(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -43,7 +43,7 @@ public class Receta{
 		return foto;
 	}
 	
-	public void serFoto(UUID foto) {
+	public void setFoto(UUID foto) {
 		this.foto = foto;
 	}
 	
