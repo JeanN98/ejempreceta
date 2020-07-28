@@ -58,7 +58,7 @@ public class RecetaControlador{
 	
 	
 	@PreAuthorize("hasAuthority('admin')")
-	@PostMapping("/private")
+	@RequestMapping("/private")
 	public String showPrivate(Model model) {
 		model.addAttribute("recipes", repo.findAll());
 		return"list_recipes";
@@ -80,7 +80,7 @@ public class RecetaControlador{
 	
 	
 	@PreAuthorize("hasAuthority('admin')")
-	@PostMapping("/edit/{id}")
+	@GetMapping("/edit/{id}")
 	public String showUpdateForm(@PathVariable("id") Long id, Model model ) {
 		
 		Receta receta = repo.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid recipe ID:" +id));
@@ -109,17 +109,14 @@ public class RecetaControlador{
 	
 	
 	@PreAuthorize("hasAuthority('admin')")
-	@PostMapping("/delete/{id}")
+	@GetMapping("/delete/{id}")
 	public String deleteRecipe(@PathVariable("id") Long id, Model model) {
 		Receta receta = repo.findById(id).orElseThrow(()-> new IllegalArgumentException("Invalid recipe ID:" +id));
 		picService.deletePicture(receta.getFoto());
 		repo.delete(receta);
 		model.addAttribute("recipes", repo.findAll());
 		return "list_recipes";
-
-	}
-	
-	
+	}		
 }
 
 

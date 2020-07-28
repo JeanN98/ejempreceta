@@ -27,11 +27,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 				"/css/**",
 				"/img/**",
 				"/webjars/**").permitAll()
-		//.antMatchers("/photos/**").hasAnyRole("ADMIN")
-		//.antMatchers("/upload/**").hasAnyRole("USER")
-		//.anyRequest()
-		//.authenticated().and().oauth2login();
-		//.authenticated()
 		.and()
 		.formLogin()
 		.loginPage("/recetas/login")
@@ -46,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	}
 	
 	@Autowired
-	public void ConfigureGlobal(AuthenticationManagerBuilder auth)
+	public void configureGlobal(AuthenticationManagerBuilder auth)
 	throws Exception{
 		auth
 		   .inMemoryAuthentication()

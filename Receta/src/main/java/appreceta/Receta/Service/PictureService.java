@@ -14,10 +14,11 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class PictureService {
+public class PictureService{
 
 	@Value("${upload.path}")
 	public String uploadDir;
+	
 	public void uploadPicture(MultipartFile file, UUID id) {
 		try {
 			Path copyLocation = Paths.get(uploadDir + File.separator + id.toString()+".jpg");

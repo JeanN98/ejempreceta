@@ -47,7 +47,7 @@ public class Receta{
 		this.foto = foto;
 	}
 	
-	public String GetPreparacion() {
+	public String getPreparacion() {
 		return preparacion;
 	}
 	
